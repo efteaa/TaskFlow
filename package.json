@@ -1,0 +1,13 @@
+{
+  "name": "marketplaceops",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first marketplace sales and margin analytics",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test",
+    "check": "node --check src/main.js && node --check src/lib/csv.js && node --check src/lib/orders.js && node --check src/lib/analytics.js"
+  },
+  "engines": { "node": ">=20" }
+}
