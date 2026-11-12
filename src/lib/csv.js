@@ -7,13 +7,13 @@ const FIELDS = {
   product: ['product', 'product name', 'nama produk', 'nama barang', 'item'],
   sku: ['sku', 'seller sku', 'sku induk', 'kode produk'],
   quantity: ['qty', 'quantity', 'jumlah', 'jumlah produk', 'jumlah produk terjual', 'units'],
-  unitPrice: ['unit price', 'price', 'harga jual', 'harga', 'sale price'],
-  unitCost: ['unit cost', 'cost', 'hpp', 'harga pokok', 'cogs'],
+  unitPrice: ['unit price', 'unitprice', 'price', 'harga jual', 'harga', 'sale price'],
+  unitCost: ['unit cost', 'unitcost', 'cost', 'hpp', 'harga pokok', 'cogs'],
   discount: ['discount', 'diskon', 'voucher seller', 'seller discount'],
   fee: ['fee', 'marketplace fee', 'biaya admin', 'biaya platform', 'platform fee'],
-  feeRate: ['fee rate', 'fee %', 'admin rate', 'persentase fee'],
-  adSpend: ['ad spend', 'ads', 'iklan', 'biaya iklan', 'ad cost'],
-  shippingCost: ['shipping cost', 'shipping subsidy', 'subsidi ongkir', 'ongkir penjual'],
+  feeRate: ['fee rate', 'feerate', 'fee %', 'admin rate', 'persentase fee'],
+  adSpend: ['ad spend', 'adspend', 'ads', 'iklan', 'biaya iklan', 'ad cost'],
+  shippingCost: ['shipping cost', 'shippingcost', 'shipping subsidy', 'subsidi ongkir', 'ongkir penjual'],
   status: ['status', 'order status', 'status pesanan']
 };
 const normalizeHeader = value => String(value).toLowerCase().replace(/[\uFEFF]/g, '').replace(/[_\-]+/g, ' ').replace(/\s+/g, ' ').trim();

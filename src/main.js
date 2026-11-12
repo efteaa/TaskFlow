@@ -1,7 +1,7 @@
 import { validateOrder, mergeOrders } from './lib/orders.js';
 import { importOrdersCsv, exportOrdersCsv } from './lib/csv.js';
 import { evaluateOrder, summarize, groupOrders, dailyRevenue, scenario, filterOrders, rupiah, number, percent } from './lib/analytics.js';
-import { loadOrders, saveOrders } from './lib/storage.js';
+import { loadOrders, saveOrders, clearSavedOrders } from './lib/storage.js';
 import { sampleOrders } from './lib/sample.js';
 
 const initial = loadOrders();
@@ -230,9 +230,10 @@ function downloadCsv(text, filename) {
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function updateOrders(orders) {
-  state.orders = orders; state.sample = false;
-  if (!saveOrders(orders)) notify('Could not save to browser storage. Data may not persist.');
+function updateOrders(orders, { sample = false } = {}) {
+  state.orders = orders; state.sample = sample;
+  const saved = sample ? clearSavedOrders() : saveOrders(orders);
+  if (!saved) notify('Could not save to browser storage. Data may not persist.');
   render();
 }
 
@@ -252,7 +253,7 @@ root.addEventListener('click', event => {
       break;
     case 'reset':
       if (confirm('Replace your saved orders with fictional demo data? Export first if you want a backup.')) {
-        updateOrders(sampleOrders); state.sample = true; render();
+        updateOrders(sampleOrders, { sample: true });
       }
       break;
   }

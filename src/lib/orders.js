@@ -69,7 +69,7 @@ export function validateOrder(candidate) {
   const unitPrice = parseAmount(candidate.unitPrice, NaN);
   const unitCost = parseAmount(candidate.unitCost, NaN);
   const discount = parseAmount(candidate.discount);
-  const fee = candidate.fee === undefined || String(candidate.fee).trim() === '' ? null : parseAmount(candidate.fee);
+  const fee = candidate.fee == null || String(candidate.fee).trim() === '' ? null : parseAmount(candidate.fee);
   const feeRate = parseAmount(candidate.feeRate);
   const adSpend = parseAmount(candidate.adSpend);
   const shippingCost = parseAmount(candidate.shippingCost);

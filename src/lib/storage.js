@@ -18,3 +18,8 @@ export function saveOrders(orders) {
   try { localStorage.setItem(KEY, JSON.stringify(orders)); return true; }
   catch { return false; }
 }
+
+export function clearSavedOrders() {
+  try { localStorage.removeItem(KEY); return true; }
+  catch { return false; }
+}
